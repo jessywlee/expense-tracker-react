@@ -1,5 +1,6 @@
 # Getting Started with Create React App
 
+This is a simple expense tracker app, for me to practice working with React hooks and the context API.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
