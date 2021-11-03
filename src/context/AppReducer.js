@@ -12,6 +12,17 @@ export default (state, action) => {
 				...state,
 				transactions: [action.payload, ...state.transactions]
 			}
+		
+		case 'ADD_TANSACTION_TAGS':
+			return {
+				...state,
+				transactions: state.transactions.forEach((transaction) => {
+					if (transaction.id === action.payload.id) {
+						transaction.tags = action.payload.tag
+					}
+				}),
+				transactionTags: [action.payload.tag, ...state.transactionTags]
+			}
 		default: 
 		return state;
 	}

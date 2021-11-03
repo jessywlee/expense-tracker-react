@@ -9,7 +9,8 @@ const initialState = {
   { id: 2, text: 'Salary', amount: 300 },
   { id: 3, text: 'Book', amount: -10 },
   { id: 4, text: 'Camera', amount: 150 }
-	]
+	],
+	transactionTags:[]
 }
 
 // Create context
@@ -34,11 +35,20 @@ export const GlobalProvider = ({children}) => {
 		})
 	};
 
+	function addTransactionTags(tag, id) {
+		dispatch({
+			type: 'ADD_TRANSACTION_TAGS',
+			payload: { tag: tag, id: id }
+		})
+	}
+
 	return (
 		<GlobalContext.Provider value={{
 			transactions: state.transactions,
+			transactionTags: state.transactionTags,
 			deleteTransaction,
-			addTransaction
+			addTransaction,
+			addTransactionTags
 		}}>
 			{children}
 		</GlobalContext.Provider>
